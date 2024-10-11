@@ -29,7 +29,7 @@ if(TEST_CPP)
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../include
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../tf-psa-crypto/include
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../tf-psa-crypto/drivers/builtin/include)
-    target_link_libraries(cpp_dummy_build ${mbedcrypto_target} ${CMAKE_THREAD_LIBS_INIT} "/media/ajayakar/space/security-project/src/llvm-libc-policy/dummySysCall/libDummySysCall.so")
+    target_link_libraries(cpp_dummy_build ${mbedcrypto_target} ${CMAKE_THREAD_LIBS_INIT} "<<<DUMMYLIB>>>")
 endif()
 
 if(USE_SHARED_MBEDTLS_LIBRARY AND
@@ -39,7 +39,7 @@ if(USE_SHARED_MBEDTLS_LIBRARY AND
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../include
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../tf-psa-crypto/include
         PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../tf-psa-crypto/drivers/builtin/include)
-    target_link_libraries(dlopen ${CMAKE_DL_LIBS} "/media/ajayakar/space/security-project/src/llvm-libc-policy/dummySysCall/libDummySysCall.so")
+    target_link_libraries(dlopen ${CMAKE_DL_LIBS} "<<<DUMMYLIB>>>")
 endif()
 
 if(GEN_FILES)
@@ -93,9 +93,9 @@ foreach(exe IN LISTS executables_libs executables_mbedcrypto)
     # This emulates "if ( ... IN_LIST ... )" which becomes available in CMake 3.3
     list(FIND executables_libs ${exe} exe_index)
     if (${exe_index} GREATER -1)
-        target_link_libraries(${exe} ${libs} ${CMAKE_THREAD_LIBS_INIT} "/media/ajayakar/space/security-project/src/llvm-libc-policy/dummySysCall/libDummySysCall.so")
+        target_link_libraries(${exe} ${libs} ${CMAKE_THREAD_LIBS_INIT} "<<<DUMMYLIB>>>")
     else()
-            target_link_libraries(${exe} ${mbedcrypto_target} ${CMAKE_THREAD_LIBS_INIT} "/media/ajayakar/space/security-project/src/llvm-libc-policy/dummySysCall/libDummySysCall.so")
+            target_link_libraries(${exe} ${mbedcrypto_target} ${CMAKE_THREAD_LIBS_INIT} "<<<DUMMYLIB>>>")
 
     endif()
 endforeach()

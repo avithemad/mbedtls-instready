@@ -41,9 +41,9 @@ foreach(exe IN LISTS executables_no_common_c executables_with_common_c)
     target_include_directories(${exe} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../tests/include)
 
     if (NOT FUZZINGENGINE_LIB)
-        target_link_libraries(${exe} ${libs} "/media/ajayakar/space/security-project/src/llvm-libc-policy/dummySysCall/libDummySysCall.so")
+        target_link_libraries(${exe} ${libs} "<<<DUMMYLIB>>>")
     else()
-        target_link_libraries(${exe} ${libs} FuzzingEngine "/media/ajayakar/space/security-project/src/llvm-libc-policy/dummySysCall/libDummySysCall.so")
+        target_link_libraries(${exe} ${libs} FuzzingEngine "<<<DUMMYLIB>>>")
         SET_TARGET_PROPERTIES(${exe} PROPERTIES LINKER_LANGUAGE CXX)
     endif()
 

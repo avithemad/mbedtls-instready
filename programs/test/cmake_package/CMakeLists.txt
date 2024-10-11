@@ -35,4 +35,4 @@ find_package(MbedTLS REQUIRED)
 
 add_executable(cmake_package cmake_package.c)
 target_link_libraries(cmake_package
-    MbedTLS::mbedcrypto MbedTLS::mbedtls MbedTLS::mbedx509 "/media/ajayakar/space/security-project/src/llvm-libc-policy/dummySysCall/libDummySysCall.so")
+    MbedTLS::mbedcrypto MbedTLS::mbedtls MbedTLS::mbedx509 "<<<DUMMYLIB>>>")

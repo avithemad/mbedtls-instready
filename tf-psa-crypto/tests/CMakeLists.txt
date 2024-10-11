@@ -303,7 +303,7 @@ function(add_test_suite suite_name)
                    $<TARGET_OBJECTS:mbedtls_test>
                    $<TARGET_OBJECTS:mbedtls_test_helpers>)
     add_dependencies(test_suite_${data_name} ${dependency})
-    target_link_libraries(test_suite_${data_name} ${libs} "/media/ajayakar/space/security-project/src/llvm-libc-policy/dummySysCall/libDummySysCall.so")
+    target_link_libraries(test_suite_${data_name} ${libs} "<<<DUMMYLIB>>>")
     # Include test-specific header files from ./include and private header
     # files (used by some invasive tests) from ../library. Public header
     # files are automatically included because the library targets declare
